@@ -82,6 +82,7 @@ export const translations = {
     envelope: {
       hint: "اضغط لفتح الدعوة",
       aria: "افتح الدعوة",
+      open: "افتح",
     },
   },
 
@@ -158,6 +159,7 @@ export const translations = {
     envelope: {
       hint: "Tik om de uitnodiging te openen",
       aria: "Open de uitnodiging",
+      open: "Openen",
     },
   },
 };

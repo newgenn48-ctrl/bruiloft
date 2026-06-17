@@ -193,6 +193,13 @@
   }
 }
 
+/* Arabisch is verbonden schrift: letterafstand verbreekt de verbinding tussen
+   letters. Schakel daarom alle letter-spacing uit zolang de taal Arabisch is.
+   (Niet-gelaagd → wint van Tailwind's tracking-utilities.) */
+html[lang="ar"] [class*="tracking-"] {
+  letter-spacing: 0 !important;
+}
+
 /* Lenis smooth scroll */
 html.lenis,
 html.lenis body {

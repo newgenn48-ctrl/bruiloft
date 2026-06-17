@@ -96,7 +96,7 @@ export function EnvelopeGate({ children }: { children: ReactNode }) {
           {/* gouden kaderlijn */}
           <div className="pointer-events-none absolute inset-4 rounded-sm border border-gold/25" />
 
-          <div className="relative flex flex-col items-center" style={{ perspective: 1600 }}>
+          <div className="relative mt-20 flex flex-col items-center sm:mt-0" style={{ perspective: 1600 }}>
             <motion.button
               type="button"
               onClick={open}
@@ -173,10 +173,16 @@ export function EnvelopeGate({ children }: { children: ReactNode }) {
                     }}
                   >
                     <span className="absolute inset-1 rounded-full border border-ink-deep/20" />
-                    <span className="font-display text-xl leading-none text-ink-deep/80">
-                      {t.nameA[0]}
-                      {t.nameB[0]}
-                    </span>
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="text-ink-deep/75"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 20s-7-4.6-9.3-9C1 8.6 2.6 5.5 6 5.5c2 0 3.2 1.2 4 2.4.8-1.2 2-2.4 4-2.4 3.4 0 5 3.1 3.3 6.5C19 16.4 12 20 12 20z" />
+                    </svg>
                   </span>
                 </span>
               </motion.span>
