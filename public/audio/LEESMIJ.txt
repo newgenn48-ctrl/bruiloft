@@ -1,0 +1,19 @@
+ACHTERGRONDMUZIEK
+=================
+
+Zet hier je muziekbestand neer met exact deze naam:
+
+    music.mp3
+
+Volledig pad:
+    public/audio/music.mp3
+
+De muziek start automatisch zodra een gast op de envelop tikt
+(dat is de gebruikersactie die de browser vereist voor geluid),
+loopt in een lus, en er verschijnt links bovenin een mute-knopje.
+
+Andere naam of bestandstype gebruiken? Pas dan AUDIO_SRC aan in:
+    components/AudioProvider.tsx
+
+Tip: gebruik een mp3 van rond de 2-4 MB (lichte bitrate, bijv. 128 kbps)
+zodat het snel laadt op de telefoon.

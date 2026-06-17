@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Design tokens — Modern "Dark Luxe" (Tailwind v4, CSS-first)
+   ============================================================ */
+@theme {
+  --color-night: #f6f1e6;  /* pagina-achtergrond (ivoor / off-white) */
+  --color-coal: #eee6d5;   /* iets dieper ivoor, voor verlopen */
+  --color-ember: #fffdf8;  /* kaart-oppervlak (bijna wit) */
+  --color-raised: #faf4e9;
+
+  --color-accent: #ece2cd;        /* licht champagne accent-baan */
+  --color-accent-deep: #e3d7be;   /* iets dieper champagne */
+  --color-accent-soft: #f3ecdb;   /* lichtste champagne */
+
+  --color-gold: #b0883a;      /* dieper goud, leesbaar op licht */
+  --color-gold-soft: #d8bd84; /* zacht goud voor accenten/glinstering */
+  --color-bronze: #9c7b3a;
+
+  --color-cream: #f4ecda;     /* lichte tekst/elementen op smaragd */
+  --color-sand: #2f2a24;      /* hoofdtekst (donkere inkt) op ivoor */
+  --color-muted: #867a64;     /* gedempte tekst op ivoor */
+  --color-muted-soft: #b9ad95;/* gedempte tekst op smaragd */
+  --color-line: rgba(176, 136, 58, 0.32);
+  --color-line-cream: rgba(216, 189, 132, 0.3);
+  --color-ink-deep: #22201c;  /* blijft donker — tekst op goud */
+
+  --font-display: var(--font-aref), "Times New Roman", serif;
+  --font-head: var(--font-reem), system-ui, sans-serif;
+  --font-body: var(--font-tajawal), system-ui, sans-serif;
+
+  --shadow-luxe: 0 30px 70px -45px rgba(31, 49, 40, 0.4);
+  --shadow-card: 0 18px 48px -32px rgba(31, 49, 40, 0.35);
+  --shadow-gold: 0 20px 60px -35px rgba(176, 136, 58, 0.4);
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  /* Nederlandse versie → Latijnse luxe-fonts */
+  html[lang="nl"] {
+    --font-display: var(--font-cormorant), Georgia, serif;
+    --font-head: var(--font-jost), system-ui, sans-serif;
+    --font-body: var(--font-jost), system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-night);
+    color: var(--color-sand);
+    font-family: var(--font-body);
+    font-size: 1.02rem;
+    line-height: 1.85;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink-deep);
+  }
+
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-coal); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-bronze);
+    border-radius: 999px;
+    border: 2px solid var(--color-coal);
+  }
+}
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-head { font-family: var(--font-head); }
+
+  .tracking-luxe { letter-spacing: 0.3em; }
+
+  .text-gradient-gold {
+    background: linear-gradient(120deg, #caa24f, #a8822f 45%, #846324 80%, #caa24f);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* extra ruimte zodat de achtergrond ook de staarten van letters dekt */
+    padding-bottom: 0.18em;
+    line-height: 1.25;
+  }
+
+  /* glinsterend goud */
+  .shimmer {
+    animation: shimmer 7s linear infinite;
+  }
+  @keyframes shimmer {
+    to {
+      background-position: 220% center;
+    }
+  }
+
+  /* 3D helpers */
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  /* Islamitische tessellatie (octagon-patroon) als fijne textuur */
+  .islamic-grid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cpolygon points='12.9,0 31.1,0 44,12.9 44,31.1 31.1,44 12.9,44 0,31.1 0,12.9' fill='none' stroke='%23c8a24c' stroke-width='0.8'/%3E%3Crect x='17.4' y='17.4' width='9.2' height='9.2' transform='rotate(45 22 22)' fill='none' stroke='%23c8a24c' stroke-width='0.6'/%3E%3C/svg%3E");
+    background-size: 44px 44px;
+  }
+
+  /* vignette voor diepte */
+  .vignette::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.45) 100%);
+    z-index: 2;
+  }
+
+  /* fijne korrel voor diepte */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 1;
+  }
+
+  .text-balance { text-wrap: balance; }
+}
+
+/* ============================================================
+   Glanzende gouden kaderlijn — lopend lichtje rond de rand
+   ============================================================ */
+@property --frame-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.glow-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--frame-angle),
+    transparent 0deg,
+    transparent 235deg,
+    rgba(227, 205, 142, 0.55) 295deg,
+    #fff6df 330deg,
+    rgba(227, 205, 142, 0.55) 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: frameGlow 7s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes frameGlow {
+  to {
+    --frame-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-frame::before {
+    animation: none;
+  }
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
