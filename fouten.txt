@@ -1,0 +1,71 @@
+Accessibility
+id attribute value must be unique: Document has multiple static elements with the same id attribute: ringGold
+id attribute value must be unique: Document has multiple static elements with the same id attribute: wingGold
+Compatibility
+'-webkit-text-size-adjust' is not supported by Chrome, Edge 79+, Firefox, Internet Explorer, Safari. Add 'text-size-adjust' to support Chrome 54+, Edge 79+.
+'backdrop-filter' is not supported by Internet Explorer, Safari. Add '-webkit-backdrop-filter' to support Safari 9+.
+'display: grid' is not supported by Internet Explorer. Add 'display: -ms-grid' to support Internet Explorer 10+.
+'flex-direction' is not supported by Internet Explorer < 11. Add '-ms-flex-direction' to support Internet Explorer 10+.
+'flex' is not supported by Internet Explorer < 11. Add '-ms-flex' to support Internet Explorer 10+.
+'grid-template-columns' is not supported by Internet Explorer. Add '-ms-grid-columns' to support Internet Explorer 10+.
+'mask-image' is not supported by Edge 79+, Internet Explorer, Opera. Add '-webkit-mask-image' to support Edge 79+, Opera 15+.
+'scroll-snap-type' is not supported by Internet Explorer. Add '-ms-scroll-snap-type' to support Internet Explorer 10+.
+'user-select' is not supported by Internet Explorer, Safari. Add '-ms-user-select' to support Internet Explorer 10+. Add '-webkit-user-select' to support Safari 3+.
+'-webkit-appearance' is not supported by Internet Explorer.
+'-webkit-box-orient' is not supported by Internet Explorer.
+'-webkit-line-clamp' is not supported by Internet Explorer.
+'align-content' is not supported by Internet Explorer < 11.
+'align-items' is not supported by Internet Explorer < 11.
+'all' is not supported by Internet Explorer.
+'backdrop-filter' is not supported by Internet Explorer.
+'background-clip: text' is not supported by Internet Explorer.
+'content-type' header charset value should be 'utf-8'.
+'cursor: grabbing' is not supported by Internet Explorer.
+'div[hidden]' is not supported by Internet Explorer < 11.
+'fill' is not supported by Internet Explorer.
+'filter' is not supported by Internet Explorer.
+'flex-flow' is not supported by Internet Explorer < 11.
+'flex-wrap' is not supported by Internet Explorer < 11.
+'font-variant-ligatures' is not supported by Internet Explorer.
+'font-variant-numeric' is not supported by Internet Explorer.
+'gap' is not supported by Internet Explorer.
+'grid-area' is not supported by Internet Explorer.
+'html[dir]' is not supported by Internet Explorer.
+'iframe[allowfullscreen]' is not supported by Internet Explorer.
+'iframe[loading]' is not supported by Internet Explorer.
+'iframe[referrerpolicy]' is not supported by Internet Explorer.
+'img[decoding]' is not supported by Internet Explorer.
+'img[srcset]' is not supported by Internet Explorer.
+'isolation' is not supported by Internet Explorer.
+'justify-content' is not supported by Internet Explorer < 11.
+'link[as]' is not supported by Internet Explorer.
+'link[fetchpriority]' is not supported by Firefox, Internet Explorer, Opera.
+'link[imagesizes]' is not supported by Internet Explorer.
+'link[imagesrcset]' is not supported by Internet Explorer.
+'min-height: auto' is not supported by Firefox 22+, Internet Explorer.
+'min-width: max-content' is not supported by Internet Explorer.
+'outline-offset' is not supported by Internet Explorer.
+'place-items' is not supported by Internet Explorer.
+'pointer-events' is not supported by Internet Explorer < 11.
+'resize' is not supported by Internet Explorer.
+'scale' is not supported by Internet Explorer.
+'script[nomodule]' is not supported by Internet Explorer.
+'scroll-snap-align' is not supported by Internet Explorer.
+'stroke-dashoffset' is not supported by Internet Explorer.
+'stroke' is not supported by Internet Explorer.
+'text-align: center' is not supported by Internet Explorer.
+'text-align: left' is not supported by Internet Explorer.
+'text-decoration-skip-ink' is not supported by Internet Explorer.
+'text-wrap' is not supported by Internet Explorer, Safari < 17.4.
+'translate' is not supported by Internet Explorer.
+'white-space: break-spaces' is not supported by Internet Explorer.
+'width: fit-content' is not supported by Internet Explorer.
+'will-change' is not supported by Internet Explorer.
+'word-wrap' is not supported by Internet Explorer.
+Performance
+'transform' changes to this property will trigger: 'Paint', which can impact performance when used inside @keyframes.
+Other
+'appearance' should be listed after '-webkit-appearance'.
+'background-clip' should be listed after '-webkit-background-clip'.
+'user-select' should be listed after '-ms-user-select'.
+Button type attribute has not been set.

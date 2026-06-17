@@ -1,9 +1,10 @@
 "use client";
 
+import { useId } from "react";
 import { motion } from "framer-motion";
 
 /** Eén vleugelhelft (lichaam aan de linkerkant, lobben naar rechts). */
-function Wing({ mirror = false }: { mirror?: boolean }) {
+function Wing({ mirror = false, gradId }: { mirror?: boolean; gradId: string }) {
   return (
     <svg
       viewBox="0 0 60 80"
@@ -11,13 +12,7 @@ function Wing({ mirror = false }: { mirror?: boolean }) {
       style={mirror ? { transform: "scaleX(-1)" } : undefined}
       aria-hidden="true"
     >
-      <defs>
-        <linearGradient id="wingGold" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#ecdcae" />
-          <stop offset="1" stopColor="#bd9648" />
-        </linearGradient>
-      </defs>
-      <g fill="url(#wingGold)" stroke="#9c7b3a" strokeWidth="0.8" opacity="0.92">
+      <g fill={`url(#${gradId})`} stroke="#9c7b3a" strokeWidth="0.8" opacity="0.92">
         <path d="M4 40 C 18 6, 58 8, 50 34 C 46 46, 16 44, 6 42 Z" />
         <path d="M6 44 C 22 48, 44 66, 30 76 C 18 84, 2 58, 4 46 Z" />
       </g>
@@ -41,7 +36,7 @@ type Path = {
   r: number[];
 };
 
-function Butterfly({ p }: { p: Path }) {
+function Butterfly({ p, gradId }: { p: Path; gradId: string }) {
   return (
     <motion.div
       className="absolute left-0 top-0"
@@ -66,14 +61,14 @@ function Butterfly({ p }: { p: Path }) {
           animate={flap}
           transition={flapT}
         >
-          <Wing mirror />
+          <Wing mirror gradId={gradId} />
         </motion.div>
         <motion.div
           className="absolute left-1/2 top-0 h-full origin-left"
           animate={flap}
           transition={flapT}
         >
-          <Wing />
+          <Wing gradId={gradId} />
         </motion.div>
         <div className="absolute left-1/2 top-[16%] h-[66%] w-[2px] -translate-x-1/2 rounded-full bg-[#5b4a23]" />
       </motion.div>
@@ -110,10 +105,20 @@ const paths: Path[] = [
 
 /** Zwevende, klapperende gouden vlinders — een levende, cinematische laag. */
 export function Butterflies({ count = paths.length }: { count?: number }) {
+  const gradId = "wingGold-" + useId().replace(/:/g, "");
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      {/* gradient één keer gedefinieerd, gedeeld door alle vleugels */}
+      <svg width="0" height="0" className="absolute" aria-hidden="true">
+        <defs>
+          <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#ecdcae" />
+            <stop offset="1" stopColor="#bd9648" />
+          </linearGradient>
+        </defs>
+      </svg>
       {paths.slice(0, count).map((p, i) => (
-        <Butterfly key={i} p={p} />
+        <Butterfly key={i} p={p} gradId={gradId} />
       ))}
     </div>
   );

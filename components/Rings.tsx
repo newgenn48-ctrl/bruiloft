@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { motion } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -9,6 +10,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
  * met een fonkelende diamant erboven. Symbool van de verbintenis.
  */
 export function Rings({ className = "" }: { className?: string }) {
+  const gid = "ringGold-" + useId().replace(/:/g, "");
   return (
     <motion.svg
       viewBox="0 0 120 70"
@@ -21,7 +23,7 @@ export function Rings({ className = "" }: { className?: string }) {
       viewport={{ once: true, margin: "-40px" }}
     >
       <defs>
-        <linearGradient id="ringGold" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#e3cd8e" />
           <stop offset="0.5" stopColor="#c8a24c" />
           <stop offset="1" stopColor="#9c7b3a" />
@@ -33,7 +35,7 @@ export function Rings({ className = "" }: { className?: string }) {
         cx="48"
         cy="42"
         r="20"
-        stroke="url(#ringGold)"
+        stroke={`url(#${gid})`}
         strokeWidth="3.5"
         variants={{
           hidden: { pathLength: 0, opacity: 0 },
@@ -49,7 +51,7 @@ export function Rings({ className = "" }: { className?: string }) {
         cx="72"
         cy="42"
         r="20"
-        stroke="url(#ringGold)"
+        stroke={`url(#${gid})`}
         strokeWidth="3.5"
         variants={{
           hidden: { pathLength: 0, opacity: 0 },

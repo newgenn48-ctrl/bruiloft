@@ -18,9 +18,9 @@
   --color-bronze: #9c7b3a;
 
   --color-cream: #f4ecda;     /* lichte tekst/elementen op smaragd */
-  --color-sand: #2f2a24;      /* hoofdtekst (donkere inkt) op ivoor */
-  --color-muted: #867a64;     /* gedempte tekst op ivoor */
-  --color-muted-soft: #b9ad95;/* gedempte tekst op smaragd */
+  --color-sand: #2b2620;      /* hoofdtekst (donkere inkt) op ivoor */
+  --color-muted: #5e5648;     /* gedempte tekst op ivoor (AA-contrast) */
+  --color-muted-soft: #6a6252;/* gedempte secundaire tekst */
   --color-line: rgba(176, 136, 58, 0.32);
   --color-line-cream: rgba(216, 189, 132, 0.3);
   --color-ink-deep: #22201c;  /* blijft donker — tekst op goud */
@@ -63,6 +63,13 @@
   ::selection {
     background: var(--color-gold);
     color: var(--color-ink-deep);
+  }
+
+  /* Zichtbare focus voor toetsenbord-/screenreadergebruikers */
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 
   ::-webkit-scrollbar { width: 10px; }
@@ -165,6 +172,9 @@
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   animation: frameGlow 7s linear infinite;
@@ -200,4 +210,11 @@ html.lenis body {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
