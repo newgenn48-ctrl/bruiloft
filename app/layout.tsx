@@ -71,13 +71,13 @@ export const metadata: Metadata = {
     locale: "nl_NL",
     alternateLocale: "ar_AR",
     siteName: shareTitle,
-    images: [{ url: "/m.jpg", alt: shareTitle }],
+    images: [{ url: "/m.webp", alt: shareTitle }],
   },
   twitter: {
     card: "summary_large_image",
     title: shareTitle,
     description: shareDescription,
-    images: ["/m.jpg"],
+    images: ["/m.webp"],
   },
 };
 

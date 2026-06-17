@@ -78,7 +78,7 @@ export function EnvelopeGate({ children }: { children: ReactNode }) {
             transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
             aria-hidden="true"
           >
-            <Image src="/m.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
+            <Image src="/m.webp" alt="" fill priority sizes="100vw" className="object-cover" />
           </motion.div>
           {/* lichte sluier over de foto voor contrast */}
           <div
@@ -173,16 +173,9 @@ export function EnvelopeGate({ children }: { children: ReactNode }) {
                     }}
                   >
                     <span className="absolute inset-1 rounded-full border border-ink-deep/20" />
-                    <svg
-                      width="22"
-                      height="22"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="text-ink-deep/75"
-                      aria-hidden="true"
-                    >
-                      <path d="M12 20s-7-4.6-9.3-9C1 8.6 2.6 5.5 6 5.5c2 0 3.2 1.2 4 2.4.8-1.2 2-2.4 4-2.4 3.4 0 5 3.1 3.3 6.5C19 16.4 12 20 12 20z" />
-                    </svg>
+                    <span className="px-1 text-center font-head text-[0.62rem] font-medium uppercase leading-none text-ink-deep/85">
+                      {t.envelope.open}
+                    </span>
                   </span>
                 </span>
               </motion.span>

@@ -1,13 +1,13 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import type { ReactNode } from "react";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 /**
- * Filmische onthulling via GSAP ScrollTrigger: de inhoud komt zacht in beeld
- * met fade + opschalen + uit-blur zodra je 'm nadert. Eénmalig per element.
+ * Filmische onthulling (Framer Motion): de inhoud komt zacht in beeld met
+ * fade + opschalen + uit-blur zodra je 'm nadert. Eénmalig per element.
  */
 export function CinematicReveal({
   children,
@@ -26,35 +26,29 @@ export function CinematicReveal({
   delay?: number;
   duration?: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  if (reduce) return <div className={className}>{children}</div>;
 
-  useGSAP(
-    () => {
-      const el = ref.current;
-      if (!el) return;
-      gsap.registerPlugin(ScrollTrigger);
-
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduce) return;
-
-      gsap.set(el, { opacity: 0, y, scale, filter: `blur(${blur}px)` });
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        filter: "blur(0px)",
-        duration,
-        delay,
-        ease: "power3.out",
-        scrollTrigger: { trigger: el, start: "top 82%", once: true },
-      });
+  const variants: Variants = {
+    hidden: { opacity: 0, y, scale, filter: `blur(${blur}px)` },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      filter: "blur(0px)",
+      transition: { duration, delay, ease },
     },
-    { scope: ref },
-  );
+  };
 
   return (
-    <div ref={ref} className={className}>
+    <motion.div
+      className={className}
+      variants={variants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 }

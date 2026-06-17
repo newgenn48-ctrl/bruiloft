@@ -27,7 +27,7 @@ export function Footer() {
           <p className="font-head text-sm tracking-luxe text-muted">{t.dateLabel}</p>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="mt-6 font-display text-xl leading-loose text-gold">{t.footer.dua}</p>
+          <p className="mt-6 font-display text-2xl leading-loose text-gold">{t.footer.dua}</p>
         </Reveal>
         <p className="mt-12 text-xs text-muted/70">
           {t.footer.madeWith} · {t.nameA} {t.and} {t.nameB} {lang === "ar" ? "٢٠٢٦" : "2026"}

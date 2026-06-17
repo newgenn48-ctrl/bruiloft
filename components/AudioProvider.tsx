@@ -15,7 +15,7 @@ import { AnimatePresence, motion } from "framer-motion";
  * dus toegestaan door de browser). Zet je bestand op: public/audio/music.mp3
  * Geen bestand? Dan gebeurt er niets en is er geen knop — niets breekt.
  */
-const AUDIO_SRC = "/audio/music.mp3";
+const AUDIO_SRC = "/audio/geluid.mp3";
 const VOLUME = 0.4;
 
 type AudioCtx = {

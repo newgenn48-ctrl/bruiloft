@@ -13,9 +13,9 @@
   --color-accent-deep: #e3d7be;   /* iets dieper champagne */
   --color-accent-soft: #f3ecdb;   /* lichtste champagne */
 
-  --color-gold: #b0883a;      /* dieper goud, leesbaar op licht */
-  --color-gold-soft: #d8bd84; /* zacht goud voor accenten/glinstering */
-  --color-bronze: #9c7b3a;
+  --color-gold: #92691f;      /* diep antiek goud — leesbaar op licht (AA) */
+  --color-gold-soft: #d8bd84; /* zacht goud voor decoratie/glinstering */
+  --color-bronze: #785a1c;    /* donker brons voor kleine labels */
 
   --color-cream: #f4ecda;     /* lichte tekst/elementen op smaragd */
   --color-sand: #2b2620;      /* hoofdtekst (donkere inkt) op ivoor */
@@ -91,7 +91,7 @@
   .tracking-luxe { letter-spacing: 0.3em; }
 
   .text-gradient-gold {
-    background: linear-gradient(120deg, #caa24f, #a8822f 45%, #846324 80%, #caa24f);
+    background: linear-gradient(120deg, #b58e34, #936f24 45%, #74571c 80%, #b58e34);
     background-size: 220% auto;
     -webkit-background-clip: text;
     background-clip: text;
