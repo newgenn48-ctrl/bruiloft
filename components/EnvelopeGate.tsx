@@ -126,7 +126,7 @@ export function EnvelopeGate({ children }: { children: ReactNode }) {
                     <span className="font-head text-[0.55rem] tracking-luxe text-bronze">
                       {t.kicker}
                     </span>
-                    <span className="mt-1 font-display text-2xl leading-tight text-ink-deep sm:text-3xl">
+                    <span className="mt-1 text-balance font-display text-base leading-snug text-ink-deep sm:text-lg">
                       {t.nameA} {t.and} {t.nameB}
                     </span>
                     <span className="mt-1 font-head text-[0.6rem] tracking-[0.2em] text-bronze">

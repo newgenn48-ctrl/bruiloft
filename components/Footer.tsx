@@ -16,7 +16,7 @@ export function Footer() {
           <Rings className="mx-auto mb-6 w-20 text-gold" />
         </Reveal>
         <Reveal delay={0.05}>
-          <p className="font-display text-5xl text-gradient-gold shimmer sm:text-6xl">
+          <p className="text-balance font-display text-3xl text-gradient-gold shimmer sm:text-4xl">
             {t.nameA} {t.and} {t.nameB}
           </p>
         </Reveal>

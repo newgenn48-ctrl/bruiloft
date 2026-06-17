@@ -62,7 +62,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 34, filter: "blur(14px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 1.3, delay: 0.5, ease }}
-            className="block text-[3.3rem] text-gradient-gold shimmer sm:text-7xl"
+            className="block text-balance text-[2.5rem] text-gradient-gold shimmer sm:text-6xl"
           >
             {t.nameA}
           </motion.span>
@@ -78,7 +78,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 34, filter: "blur(14px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 1.3, delay: 0.66, ease }}
-            className="block text-[3.3rem] text-gradient-gold shimmer sm:text-7xl"
+            className="block text-balance text-[2.5rem] text-gradient-gold shimmer sm:text-6xl"
           >
             {t.nameB}
           </motion.span>

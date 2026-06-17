@@ -12,8 +12,8 @@ export const translations = {
   ar: {
     bismillah: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
     kicker: "دعوة زفاف",
-    nameA: "أحمد",
-    nameB: "مريم",
+    nameA: "أحمد الخطيب",
+    nameB: "مريم الشرع",
     and: "و",
     dateLabel: "الإثنين ١٣ يوليو ٢٠٢٦ — الساعة ٦ مساءً",
     location: "فلاردينجن، هولندا",
@@ -89,8 +89,8 @@ export const translations = {
   nl: {
     bismillah: "In de naam van Allah, de Erbarmer, de Meest Barmhartige",
     kicker: "Trouwuitnodiging",
-    nameA: "Ahmad",
-    nameB: "Mariam",
+    nameA: "Ahmad Al-Khatib",
+    nameB: "Mariam Al-Shara",
     and: "&",
     dateLabel: "Maandag 13 juli 2026 — om 18:00 uur",
     location: "Vlaardingen, Nederland",
