@@ -6,7 +6,7 @@ import {
   Cormorant_Garamond,
   Jost,
 } from "next/font/google";
-import { wedding } from "@/lib/config";
+import { translations } from "@/lib/i18n";
 import "./globals.css";
 
 const aref = Aref_Ruqaa({
@@ -46,13 +46,38 @@ const jost = Jost({
   display: "swap",
 });
 
+// Productie-URL automatisch via Vercel; lokaal valt het terug op localhost.
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000";
+
+const nameA = `${translations.nl.nameA} & ${translations.nl.nameB}`;
+const nameAr = `${translations.ar.nameA} و ${translations.ar.nameB}`;
+
+// Wat in de link-preview verschijnt (WhatsApp, Instagram, ...) — NL + Arabisch
+const shareTitle = `Bruiloft uitnodiging · دعوة زفاف — ${nameA}`;
+const shareDescription = `${nameA} · ${nameAr} — ${translations.nl.dateLabel}, ${translations.nl.venue.name}. Je bent van harte uitgenodigd! · يسعدنا دعوتكم لحضور حفل زفافنا`;
+
 export const metadata: Metadata = {
-  title: `${wedding.partnerA} و ${wedding.partnerB} — دعوة زفاف`,
-  description: `يسعدنا دعوتكم لحضور حفل زفاف ${wedding.partnerA} و ${wedding.partnerB} في ${wedding.dateLabel}.`,
+  metadataBase: new URL(siteUrl),
+  title: shareTitle,
+  description: shareDescription,
   openGraph: {
-    title: `${wedding.partnerA} و ${wedding.partnerB} — دعوة زفاف`,
-    description: `${wedding.dateLabel} · ${wedding.location}`,
+    title: shareTitle,
+    description: shareDescription,
     type: "website",
+    locale: "nl_NL",
+    alternateLocale: "ar_AR",
+    siteName: shareTitle,
+    images: [{ url: "/m.jpg", alt: shareTitle }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: shareTitle,
+    description: shareDescription,
+    images: ["/m.jpg"],
   },
 };
 
