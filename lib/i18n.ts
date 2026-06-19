@@ -17,6 +17,7 @@ export const translations = {
     and: "و",
     dateLabel: "الإثنين ١٣ يوليو ٢٠٢٦ — الساعة ٦ مساءً",
     location: "فلاردينجن، هولندا",
+    scrollHint: "مرّروا للأسفل",
     blessing: "ما شاء الله تبارك الله",
 
     ayah: {
@@ -94,6 +95,7 @@ export const translations = {
     and: "&",
     dateLabel: "Maandag 13 juli 2026 — om 18:00 uur",
     location: "Vlaardingen, Nederland",
+    scrollHint: "Scroll naar beneden",
     blessing: "Masha’Allah, Tabarak’Allah",
 
     ayah: {

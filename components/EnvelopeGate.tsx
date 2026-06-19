@@ -173,7 +173,7 @@ export function EnvelopeGate({ children }: { children: ReactNode }) {
                     }}
                   >
                     <span className="absolute inset-1 rounded-full border border-ink-deep/20" />
-                    <span className="px-1 text-center font-head text-[0.62rem] font-medium uppercase leading-none text-ink-deep/85">
+                    <span className="px-1 text-center font-head text-[0.78rem] font-semibold uppercase leading-none text-ink-deep/85">
                       {t.envelope.open}
                     </span>
                   </span>

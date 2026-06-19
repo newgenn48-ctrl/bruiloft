@@ -114,13 +114,14 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6, duration: 1 }}
-        className="absolute bottom-7 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-gold"
-        aria-label="مرّر للأسفل"
+        className="relative z-10 mt-12 flex flex-col items-center gap-2 text-gold"
+        aria-label={t.scrollHint}
       >
+        <span className="font-head text-xs text-gold sm:text-sm">{t.scrollHint}</span>
         <motion.span
-          animate={{ y: [0, 7, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="text-base"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-gold/60 bg-night/40 text-xl backdrop-blur-sm"
         >
           ↓
         </motion.span>
